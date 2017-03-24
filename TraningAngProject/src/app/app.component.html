@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<h1 class="header-text">Hot Weather Widget</h1>
+<div class="element">
+
+  <app-hotels
+    [list]="hotelList"
+    [selected]="selectedResort"
+    (clicktoElem)="selectedResort = $event">
+  </app-hotels>
+
+  <div class="element-right">
+    <app-weather
+      [temperature]="selectedResort.temperature"
+      [city]="selectedResort.city">
+    </app-weather>
+
+    <app-details
+      [selected]="selectedResort">
+    </app-details>
+  </div>
+
+</div>
