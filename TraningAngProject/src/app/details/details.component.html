@@ -2,7 +2,7 @@
   <div class="teddy-text">
     <h4>{{selected.country}}</h4>
     <span class="w-line"></span>
-    <img alt="" class="img-responsive" [src]="'assets/images/resort' + selected.id + '.jpg'">
+    <img alt="" class="img-responsive" [src]="selected.id | srcPipe">
   </div>
   <div class="teddy-follow">
     <ul>

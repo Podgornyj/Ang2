@@ -1,12 +1,12 @@
 <div class="element-left">
-  <div class="element-bg-img"><img alt="" class="img-responsive" [src]="'assets/images/resort' + selected.id + '.jpg'"></div>
+  <div class="element-bg-img"><img alt="" class="img-responsive" [src]="selected.id | srcPipe"></div>
   <div class="element-left-bottom">
     <div class="ele-strip">
       <ul>
-        <li><a href="#">Hotel</a></li>
-        <li><a href="#">Fishing</a></li>
-        <li><a href="#">Tours</a></li>
-        <li class="anc-bor"><a href="#">Weather</a></li>
+        <li><a (click)="selectedCountry=''">ALL</a></li>
+        <li><a (click)="selectedCountry = 1">*</a></li>
+        <li><a (click)="selectedCountry = 2">**</a></li>
+        <li><a (click)="selectedCountry = 3">***</a></li>
       </ul>
     </div>
     <div class="village">
@@ -14,7 +14,7 @@
       <span class="line"> </span>
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
-          <div *ngFor="let item of list; let i = index" (click)="clicktoElem.emit(item)"  class="activity-row">
+          <div *ngFor="let item of list | hotelFilter: selectedCountry" (click)="clicktoElem.emit(item)"  class="activity-row">
             <div class="activity-desc">
               <h5>{{item.city}}</h5>
               <p>{{item.country}}</p>
@@ -22,9 +22,10 @@
             </div>
             <div class="activity-img">
               <ul>
-                <li><img alt="" [src]="'assets/images/resort' + i + '.jpg'"></li>
+                <li><img alt="" [src]="item.id | srcPipe"></li>
               </ul>
             </div>
+            <div class="star">Star: {{item.stars}}</div>
             <div class="clear"></div>
           </div>
         </div>
@@ -32,3 +33,6 @@
     </div>
   </div>
 </div>
+
+
+<!--assets/images/resort' + item.id + '.jpg-->

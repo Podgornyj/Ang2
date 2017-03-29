@@ -17,4 +17,5 @@ export class HotelsComponent {
   public list: hotelsData;
   @Output()
   public clicktoElem: EventEmitter<{}> = new EventEmitter;
+  public selectedCountry: string;
 }

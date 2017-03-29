@@ -11,3 +11,4 @@ export class WeatherComponent  {
   @Input()
   public city: number;
 }
+

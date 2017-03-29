@@ -6,4 +6,5 @@ type hotelsData = {
   phone: string,
   followers: number,
   following: number,
+  stars: number
 };
